@@ -8,6 +8,6 @@ while(tip_percentage not in [10,12,15]):
 
 total_plus_tip=total_bill + total_bill*(tip_percentage/100)
 total_per_person=round(total_plus_tip/people_number,2)
-print("Each person should pay: $",total_per_person)
+print("Each person should pay: $"+ str(total_per_person))
 
 
