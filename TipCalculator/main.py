@@ -1,3 +1,7 @@
+#Program that calculates restaurant bill
+#takes in the total bill, the number of persons at the table and the tip percentage and gives as output how much each
+#person should pay; 
+
 print("Welcome to the tip calculator.")
 total_bill=float(input("What was the total bill? $"))
 people_number=int(input("How many people to split the bill? "))
