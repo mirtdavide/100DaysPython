@@ -21,25 +21,39 @@ game_over = False
 
 lives = 6
 print(placeholder)
-
+correct_letters = []
 while not game_over :
-    correct_letters = []
-    input_letter = (input("Give me a letter: ")).lower()
 
-    if input_letter in correct_letters:
-        print("You already said that letter!")
-    else:
-        if input_letter in word:
-            for letter in word:
-                if letter == input_letter:
-                    placeholder[word.index(letter)] = input_letter
-                    correct_letters.append(letter)
+    input_letter = (input("Give me a letter: ")).lower()
+    if len(input_letter) > 1:
+        if input_letter == word:
+            game_over = True
+            print("Correct, you won!")
         else:
-            lives = lives -1
-    print(placeholder)
-    if lives == 0 or "_" not in placeholder:
-        game_over = True
-        print("Game over!")
+            lives -= 1
+            print("Bad Guess, remaining lives " + str(lives) + "/6")
+
+    else:
+        if input_letter in correct_letters:
+            print("You already said that letter!")
+        else:
+            found = False
+            for i in range(len(word)):
+                if word[i] == input_letter:
+                    found = True
+                    placeholder[i]= input_letter
+            if found:
+                print("Correct Guess")
+                correct_letters.append(input_letter)
+            else:
+
+                lives-=1
+            print("Bad Guess, remaining lives " + str(lives) + "/6")
+
+        print(placeholder)
+        if lives == 0 or "_" not in placeholder:
+            game_over = True
+            print("Game over!")
 
 
 
